@@ -22,7 +22,6 @@ int is_palindrome(unsigned long n)
 	temp = n;
 	while (topPower >= botPower)
 	{
-		printf("top: %lu, bot: %lu, toppower: %lu, botpower: %lu\n", temp / topPower, temp % botPower, topPower, botPower);
 		if (temp / topPower != temp % botPower)
 		{
 			return (0);
