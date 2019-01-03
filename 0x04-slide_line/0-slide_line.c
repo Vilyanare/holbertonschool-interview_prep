@@ -40,12 +40,15 @@ int slide_line(int *line, size_t size, int direction)
 			else if (line[hold] == 0)
 			{
 				line[hold] = line[x];
-				if (line[x] != 0)
-					hold += increase;
 				line[x] = 0;
 			}
 			else
 				hold += increase;
+			if (x + increase == stop && line[x] != 0 && line[hold] == 0)
+			{
+				line[hold] = line[x];
+				line[x] = 0;
+			}
 		}
 	return(1);
 }
