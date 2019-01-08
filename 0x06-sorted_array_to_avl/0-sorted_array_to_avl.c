@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * recurse_avl - Recursive funcion to make the tree
+ * @parent: parent node of tree
+ * @array: array of numbers
+ * @size: size of the array
+ * Return: void
+ */
 void recurse_avl(avl_t *parent, int *array, size_t size)
 {
 	int half = (size / 2);
