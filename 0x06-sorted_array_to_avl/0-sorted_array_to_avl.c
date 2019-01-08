@@ -60,5 +60,5 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 
 	recurse_avl(new, array, size);
 
-	return new;
+	return (new);
 }
