@@ -1,27 +1,32 @@
 #include "search.h"
 
 skiplist_t *linear_skip(skiplist_t *list, int value) {
-	skiplist_t *current = list;
+	skiplist_t *c = list;
+	char *text1 = "Value checked at index [%lu] = [%d]\n";
+	char *text2 = "Value found between indexes [%lu] and [%lu]\n";
 
-	while (current) {
-		if (current->express) {
-			printf("Value checked at index [%lu] = [%d]\n", current->express->index, current->express->n);
-			if (current->express->n <= value) {
-				current = current->express;
+	while (c) {
+		if (c->express)
+		{
+			printf(text1, c->express->index, c->express->n);
+			if (c->express->n < value)
+			{
+				c = c->express;
 				continue;
 			}
-			printf("Value found between indexes [%lu] and [%lu]\n", current->index, current->express->index);
+			printf(text2, c->index, c->express->index);
 		}
-		printf("Value checked at index [%lu] = [%d]\n", current->index, current->n);
-		if (current->next) {
-			if (current->next->n <= value) {
-				current = current->next;
+		printf(text1, c->index, c->n);
+		if (c->next) {
+			if (c->next->n <= value)
+			{
+				c = c->next;
 				continue;
 			}
 		}
-		if (current->n == value)
-			return (current);
-		current = current->express;
+		if (c->n == value)
+			return (c);
+		c = c->express;
 	}
 	return (NULL);
 }
