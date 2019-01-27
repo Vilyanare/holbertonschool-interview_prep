@@ -1,5 +1,11 @@
 #include "search_algos.h"
 
+/**
+ * print_array - prints an array
+ * @array: array to print
+ * @size: size of array
+ * Return: void
+ */
 void print_array(int *array, size_t size)
 {
 	int first = 1;
