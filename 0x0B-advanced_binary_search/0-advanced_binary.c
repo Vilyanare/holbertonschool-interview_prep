@@ -33,11 +33,11 @@ int advanced_binary(int *array, size_t size, int value)
 	{
 		return (-1);
 	}
+		print_array(array, size);
 	if (size == 1 && array[0] != value)
 	{
 		return (-1);
 	}
-		print_array(array, size);
 
 	if (array[half] == value)
 	{
