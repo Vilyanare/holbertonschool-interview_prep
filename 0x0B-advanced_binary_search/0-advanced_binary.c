@@ -29,7 +29,6 @@ int advanced_binary(int *array, size_t size, int value)
 {
 	int half = (size - 1) / 2, hold = 0;
 
-	print_array(array, size);
 	if (size == 0 || array == NULL)
 	{
 		return (-1);
@@ -38,6 +37,7 @@ int advanced_binary(int *array, size_t size, int value)
 	{
 		return (-1);
 	}
+		print_array(array, size);
 
 	if (array[half] == value)
 	{
