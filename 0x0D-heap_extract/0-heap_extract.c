@@ -92,6 +92,12 @@ int heap_extract(heap_t **root)
 	if (*root == NULL)
 		return (0);
 
+	if (nroot->left == NULL && nroot->right == NULL)
+	{
+		swap = nroot->n;
+		free(*root);
+		*root = NULL;
+	}
 	temp = find_end(*root);
 	if (temp->parent->right)
 		temp->parent->right = NULL;
