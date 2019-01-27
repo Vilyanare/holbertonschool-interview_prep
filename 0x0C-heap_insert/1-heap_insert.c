@@ -3,14 +3,13 @@
 /**
  * sift_up - sift larger nodes to the top of the max heap
  * @node: Node to check
- * @root: root node of the tree
  * Return: resting place of the value
  */
 heap_t *sift_up(heap_t *node)
 {
 	int temp = 0;
 
-	if(node->parent && node->n > node->parent->n)
+	if (node->parent && node->n > node->parent->n)
 	{
 		temp = node->parent->n;
 		node->parent->n = node->n;
