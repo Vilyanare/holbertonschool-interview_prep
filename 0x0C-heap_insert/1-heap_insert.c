@@ -4,9 +4,9 @@
  * sift_up - sift larger nodes to the top of the max heap
  * @node: Node to check
  * @root: root node of the tree
- * Return: void
+ * Return: resting place of the value
  */
-void sift_up(heap_t *node)
+heap_t *sift_up(heap_t *node)
 {
 	int temp = 0;
 
@@ -15,8 +15,9 @@ void sift_up(heap_t *node)
 		temp = node->parent->n;
 		node->parent->n = node->n;
 		node->n = temp;
-		sift_up(node->parent);
+		return (sift_up(node->parent));
 	}
+	return (node);
 }
 /**
  * find_depth - find the minimum depth of the tree
@@ -102,7 +103,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	else
 		temp->right = new;
 
-	sift_up(new);
+	new = sift_up(new);
 
 	return (new);
 }
