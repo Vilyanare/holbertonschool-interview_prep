@@ -39,7 +39,7 @@ int find_depth(heap_t *node)
 	left = find_depth(node->left);
 	right = find_depth(node->right);
 
-	return (((left > right) ? left: right) + 1);
+	return (((left > right) ? left : right) + 1);
 }
 /**
  * rec_find_end - recursive function to find the end of the tree
@@ -63,7 +63,7 @@ heap_t *rec_find_end(int deep, int depth, heap_t *node)
 		return (node);
 	}
 
-	return ((right != NULL) ? right: left);
+	return ((right != NULL) ? right : left);
 }
 /**
  * find_end - Shell function to find the end node of the a tree
@@ -97,6 +97,7 @@ int heap_extract(heap_t **root)
 		swap = nroot->n;
 		free(*root);
 		*root = NULL;
+		return (swap);
 	}
 	temp = find_end(*root);
 	if (temp->parent->right)
