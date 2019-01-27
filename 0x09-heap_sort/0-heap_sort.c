@@ -8,7 +8,7 @@
  * @size: max array size
  * Return: void
  */
-void siftdown(int *array, size_t start, size_t end)
+void siftdown(int *array, size_t start, size_t end, size_t size)
 {
 	size_t x = start, left, right;
 	int temp = 0;
@@ -29,6 +29,7 @@ void siftdown(int *array, size_t start, size_t end)
 						array[x] = array[left];
 						array[left] = temp;
 						x = left;
+						print_array(array, size);
 					}
 					else
 					{
@@ -43,6 +44,7 @@ void siftdown(int *array, size_t start, size_t end)
 						array[x] = array[right];
 						array[right] = temp;
 						x = right;
+						print_array(array, size);
 					}
 					else
 					{
@@ -57,6 +59,7 @@ void siftdown(int *array, size_t start, size_t end)
 					array[x] = array[left];
 					array[left] = temp;
 					x = left;
+					print_array(array, size);
 				}
 				else
 				{
@@ -82,7 +85,7 @@ void heapify(int *array, size_t size)
 
 	while (start >= 0)
 	{
-		siftdown(array, start, size - 1);
+		siftdown(array, start, size - 1, size);
 		start--;
 	}
 }
@@ -102,7 +105,7 @@ void heap_sort(int *array, size_t size)
 		heapify(array, size);
 		while (end > 0)
 		{
-			siftdown(array, start, end);
+			siftdown(array, start, end, size);
 			temp = array[start];
 			array[start] = array[end];
 			array[end] = temp;
