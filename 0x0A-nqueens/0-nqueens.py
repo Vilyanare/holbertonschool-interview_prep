@@ -25,12 +25,11 @@ if N < 4:
     print("N must be at least 4")
     exit(1)
 
+
 def printSolution(board):
     """
     Prints the index location of the queens
     """
-
-
     first = True
     print("[", end='')
     for row in range(N):
@@ -42,12 +41,11 @@ def printSolution(board):
                 first = False
     print("]")
 
+
 def isSafe(board, row, col):
     """
     Checks to see if a queen can see another queen
     """
-
-
     for i in range(col):
         if board[row][i] == 1:
             return False
@@ -62,12 +60,11 @@ def isSafe(board, row, col):
 
     return True
 
+
 def solveNQueens(board, col):
     """
     Recursively checks each spot to see if it is a valid board
     """
-
-
     if col == N:
         printSolution(board)
         return True
